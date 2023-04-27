@@ -5,7 +5,7 @@
  * @format
  */
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet, StatusBar} from 'react-native';
 import Login from './components/Login';
 import Register from './components/Register';
 import AddResource from './components/AddResource';
@@ -42,7 +42,7 @@ function App() {
       <StatusBar
         barStyle="dark-content"
         hidden={false}
-        backgroundColor="white"
+        backgroundColor="#fff"
       />
       {/* <Login /> */}
       {/* <Register /> */}

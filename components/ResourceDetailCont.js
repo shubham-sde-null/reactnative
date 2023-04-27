@@ -95,6 +95,9 @@ export default function ResourceDetailCont(props) {
       username: updateUsername,
       email: updateEmail,
       designation: updateDesignation,
+      today: updateToday,
+      billable: updateBillable,
+      nonbillable: updateNonBillable,
     };
     await axios.put(
       `https://repulsive-leotard-fly.cyclic.app/allresource/${currentId}`,
@@ -183,7 +186,7 @@ export default function ResourceDetailCont(props) {
                 </View>
                 <View style={styles.resCommon}>
                   <Text style={{color: '#707478'}}>Today</Text>
-                  <Text style={styles.icons}>10Hr</Text>
+                  <Text style={styles.icons}>{item.today}</Text>
                 </View>
               </View>
               <View style={styles.resTwo}>
@@ -193,7 +196,7 @@ export default function ResourceDetailCont(props) {
 
                 <View style={styles.resCommon}>
                   <Text style={{color: '#707478'}}>Billable</Text>
-                  <Text style={styles.icons}>0Hr</Text>
+                  <Text style={styles.icons}>{item.billable}</Text>
                 </View>
               </View>
               <View style={styles.resThree}>
@@ -207,7 +210,7 @@ export default function ResourceDetailCont(props) {
 
                 <View style={styles.resCommon}>
                   <Text style={{color: '#707478'}}>Non-Billable</Text>
-                  <Text style={styles.icons}>0Hr</Text>
+                  <Text style={styles.icons}>{item.nonbillable}</Text>
                 </View>
               </View>
             </View>
@@ -238,6 +241,29 @@ export default function ResourceDetailCont(props) {
               designationReceived={updateDesignation}
               updateDesignation={setUpdateDesignation}
             />
+            {/* start  */}
+            <Text style={styles.placeHolderText}>Today:</Text>
+            <TextInput
+              placeholder="Today"
+              style={styles.inputText}
+              value={updateToday}
+              onChangeText={text => setUpdateToday(text.toString())}
+            />
+            <Text style={styles.placeHolderText}>Billable:</Text>
+            <TextInput
+              placeholder="Billable"
+              style={styles.inputText}
+              value={updateBillable}
+              onChangeText={text => setUpdateBillable(text.toString())}
+            />
+            <Text style={styles.placeHolderText}>Non-Billable:</Text>
+            <TextInput
+              placeholder="Non-Billable"
+              style={styles.inputText}
+              value={updateNonBillable}
+              onChangeText={text => setUpdateNonBillable(text.toString())}
+            />
+            {/* end  */}
 
             {/* <TextInput placeholder="designation" style={styles.inputText} /> */}
             <View style={styles.modalButton}>

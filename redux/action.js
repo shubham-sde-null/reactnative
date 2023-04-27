@@ -14,11 +14,15 @@ export const setProducts = (products = null) => {
 };
 export const fetchProducts = () => {
   return async function (dispatch) {
-    const res = await fetch(
-      'https://repulsive-leotard-fly.cyclic.app/allresource',
-    );
-    const data = await res.json();
-    dispatch(setProducts(data));
+    try {
+      const res = await fetch(
+        'https://repulsive-leotard-fly.cyclic.app/allresource',
+      );
+      const data = await res.json();
+      dispatch(setProducts(data));
+    } catch (error) {
+      console.log('the error occured due to', error);
+    }
   };
 };
 export const initialLoad = () => {

@@ -70,8 +70,8 @@ export default function Login(props) {
     // console.log('the current user is', userPresent);
     if (userPresent.length >= 1) {
       // console.warn('login Successful');
-      // props.navigation.navigate('Add Resource');
       props.navigation.navigate('Add Resource');
+      // props.navigation.navigate('Resource Detail');
     } else {
       Alert.alert(
         'Invalid User',

@@ -1,4 +1,4 @@
-import { COUNTER, ADD, UPDATE, DELETE, SET_PRODUCTS } from "./action";
+import {COUNTER, ADD, UPDATE, DELETE, SET_PRODUCTS} from './action';
 export const renderPage = (count = 0, action) => {
   switch (action.type) {
     case COUNTER:
@@ -14,13 +14,16 @@ export const addData = (oldValues = [], action) => {
     case ADD:
       return [...oldValues, action.payload];
     case UPDATE:
-      return oldValues.map((item) => {
+      return oldValues.map(item => {
         if (item.id === action.payload.id) {
           return {
             ...item,
             username: action.payload.username,
             email: action.payload.email,
             designation: action.payload.designation,
+            today: action.payload.today,
+            billable: action.payload.billable,
+            nonbillable: action.payload.nonbillable,
           };
         }
         return item;
@@ -28,12 +31,12 @@ export const addData = (oldValues = [], action) => {
     // return [...oldValues, action.payload];
     case DELETE:
       const duplicateArray = oldValues.filter(
-        (item) => item.id === action.payload.id
+        item => item.id === action.payload.id,
       );
       duplicateArray.pop();
       return [
         ...duplicateArray,
-        ...oldValues.filter((item) => item.id !== action.payload.id),
+        ...oldValues.filter(item => item.id !== action.payload.id),
       ];
     default:
       return oldValues;
